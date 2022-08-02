@@ -27,5 +27,8 @@
     "@remix-run/node": "^1.6.7",
     "tsup": "^6.2.1",
     "typescript": "^4.7.4"
-  }
+  },
+  "workspaces": [
+    "example"
+  ]
 }

@@ -1,6 +1,7 @@
 {
   "typescript": {
-    "quoteStyle": "preferSingle"
+    "quoteStyle": "preferSingle",
+    "jsx.quoteStyle": "preferDouble"
   },
   "json": {},
   "includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs,json,md}"],

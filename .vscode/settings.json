@@ -9,6 +9,9 @@
   "[typescript]": {
     "editor.defaultFormatter": "dprint.dprint"
   },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
   "[markdown]": {
     "editor.defaultFormatter": "dprint.dprint"
   }

@@ -6,13 +6,8 @@ export const reducer = async (state: State, action: Action): Promise<[State, any
   let nextValue = undefined;
 
   switch (type) {
-    case 'SET_HEADER': {
+    case 'APPEND_HEADER': {
       state.headers.push([payload.name, payload.value]);
-      break;
-    }
-
-    case 'SET_COOKIE_HEADER': {
-      state.headers.push(['Set-Cookie', payload.value]);
       break;
     }
 

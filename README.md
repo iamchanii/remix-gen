@@ -37,12 +37,21 @@ export const action: ActionFunction = ({ request }) =>
     const session = await getSession(request.headers.get('cookie'));
 
     // You can set multiple Set-Cookie headers.
-    yield actions.setCookieHeader(await fooCookie.serialize('foo'));
-    yield actions.setCookieHeader(await barCookie.serialize('bar'));
-    yield actions.setCookieHeader(await zaxCookie.serialize('zax'));
+    yield actions.appendHeader({
+      name: 'Set-Cookie',
+      value: await fooCookie.serialize('foo'),
+    });
+    yield actions.appendHeader({
+      name: 'Set-Cookie',
+      value: await barCookie.serialize('bar'),
+    });
+    yield actions.appendHeader({
+      name: 'Set-Cookie',
+      value: await zaxCookie.serialize('zax'),
+    });
 
     // You can set value to session as flash.
-    yield actions.flashSession({
+    yield actions.setSessionFlashData({
       commitSession,
       session,
       key: 'notify',
@@ -52,17 +61,45 @@ export const action: ActionFunction = ({ request }) =>
     // ...and you don't have to set headers manually!
     return redirect('/main');
   });
+
+export const loader: LoaderFunction = ({ request }) =>
+  gen(async function*({ actions }) {
+    const session = await getSession(request.headers.get('cookie'));
+
+    const message: string = yield actions.getSessionFlashData({
+      commitSession,
+      session,
+      name: 'message',
+    });
+
+    return { message };
+  });
 ```
 
 ## API
 
-### `actions.setCookieHeader`
+- `actions.appendHeader({ name, value })`
+- `actions.setSessionData({ commitSession, session, name, value  })`
+- `actions.setSessionFlashData({ commitSession, session, name, value  })`
+- `actions.getSessionFlashData({ commitSession, session, name  })`
 
-T.B.D
+## Example
 
-### `actions.flashSession`
+See [Example](/example/app/routes/index.tsx)
 
-T.B.D
+## FAQ
+
+> I'm new to(or not used to) Remix. Am I have to use this library to handle session or cookie?
+
+No. This is just a utility. if you're new to Remix, I suggest reading official Remix docs.
+
+> When is the best to use this?
+
+If you're using a session that creates via `createCookieSessionStorage`, You have to call `commitSession` and add `headers` to response. but you can miss it because easy to forget, troublesome or whatever. remix-gen might be helpful. it will be automatically processed using generator. In another word, You don't need this if you're using a session with memory, file, custom, etc.
+
+> Is this related with a generate some files or snippets for Remix?
+
+No. `gen` is just an abbreviation for generator of JS.
 
 ## License
 

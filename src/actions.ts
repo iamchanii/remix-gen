@@ -1,13 +1,8 @@
 import type { Session, SessionStorage } from '@remix-run/node';
 
 export const actions = {
-  setHeader: (payload: { name: string; value: string }) => ({
-    type: 'SET_HEADER' as const,
-    payload,
-  }),
-
-  setCookieHeader: (payload: { value: string }) => ({
-    type: 'SET_COOKIE_HEADER' as const,
+  appendHeader: (payload: { name: string; value: string }) => ({
+    type: 'APPEND_HEADER' as const,
     payload,
   }),
 

@@ -4384,7 +4384,7 @@ __metadata:
     eslint: ^8.20.0
     react: ^17.0.2
     react-dom: ^17.0.2
-    remix-gen: ^0.0.3
+    remix-gen: "*"
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -7945,12 +7945,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remix-gen@npm:^0.0.3":
-  version: 0.0.3
-  resolution: "remix-gen@npm:0.0.3"
-  checksum: 4279b0177c350a172f784b189aae329020075d1446534cdc6117624b5fa7c8cafeb18b6c0b2d6a1ffcf82d179ffee91d57738fd12b3d6ec0aaab09f61c522c46
+"remix-gen@portal:/Users/iamchanii/dev/remix-gen::locator=example%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "remix-gen@portal:/Users/iamchanii/dev/remix-gen::locator=example%40workspace%3A."
   languageName: node
-  linkType: hard
+  linkType: soft
 
 "repeat-element@npm:^1.1.2":
   version: 1.1.4

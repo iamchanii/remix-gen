@@ -1,16 +1,23 @@
-import { ActionFunction, LoaderFunction } from '@remix-run/node';
+import type { ActionFunction, LoaderFunction } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
 import { gen } from 'remix-gen';
+import { fooCookie } from '~/cookies';
 import { commitSession, getSession } from '~/session';
 
 export const action: ActionFunction = ({ request }) =>
   gen(async function*({ actions }) {
     const session = await getSession(request.headers.get('cookie'));
-    yield actions.flashSession({
+
+    yield actions.setSessionFlashData({
       commitSession,
       session,
       name: 'message',
       value: `Your request was rejected. (Reason: Already Registered / ${new Date().toUTCString()})`,
+    });
+
+    yield actions.appendHeader({
+      name: 'Set-Cookie',
+      value: await fooCookie.serialize('foo!'),
     });
 
     return null;

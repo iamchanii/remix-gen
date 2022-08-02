@@ -2,19 +2,22 @@ import { actions, isAction } from './actions.js';
 import { reducer } from './reducer.js';
 import { getInitialState } from './state.js';
 
-export const gen = async (
-  loaderOrActionGenFn: (args: { actions: typeof actions }) => AsyncGenerator,
-) => {
+interface LoaderOrActionGenFn {
+  (args: { actions: typeof actions }): AsyncGenerator;
+}
+
+export const gen = async (loaderOrActionGenFn: LoaderOrActionGenFn) => {
   const generator = loaderOrActionGenFn({ actions });
   let result = await generator.next();
   let state = getInitialState();
+  let nextValue;
 
   while (!result.done) {
     if (isAction(result.value)) {
-      state = await reducer(state, result.value);
+      [state, nextValue] = await reducer(state, result.value);
     }
 
-    result = await generator.next();
+    result = await generator.next(nextValue);
   }
 
   const responseOrValue = result.value;

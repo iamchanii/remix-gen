@@ -1,6 +1,6 @@
 {
   "name": "remix-gen",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "packageManager": "yarn@3.2.2",
   "keywords": [
     "remix",

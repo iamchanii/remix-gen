@@ -5,12 +5,19 @@ export const actions = {
     type: 'SET_COOKIE_HEADER' as const,
     payload: cookieValue,
   }),
+
   flashSession: (payload: {
     commitSession: SessionStorage['commitSession'];
     session: Session;
-    key: string;
+    name: string;
     value: any;
   }) => ({ type: 'FLASH_SESSION' as const, payload }),
+
+  getSessionFlashData: (payload: {
+    commitSession: SessionStorage['commitSession'];
+    session: Session;
+    name: string;
+  }) => ({ type: 'GET_SESSION_FLASH_DATA' as const, payload }),
 };
 
 export type Action = ReturnType<typeof actions[keyof typeof actions]>;

@@ -4,8 +4,6 @@ A utility for Remix's loader/action based on async generator.
 
 ## Install
 
-> Not Published Yet.
-
 ```sh
 $ yarn add remix-gen
 ```

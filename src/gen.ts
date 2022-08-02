@@ -10,12 +10,10 @@ export const gen = async (
   let state = getInitialState();
 
   while (!result.done) {
-    if (!isAction(result.value)) {
-      result = await generator.next();
-      continue;
+    if (isAction(result.value)) {
+      state = await reducer(state, result.value);
     }
 
-    state = await reducer(state, result.value);
     result = await generator.next();
   }
 

@@ -16,7 +16,8 @@
   "files": [
     "dist",
     "README.md",
-    "package.json"
+    "package.json",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsup src/index.ts",

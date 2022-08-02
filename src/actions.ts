@@ -1,17 +1,29 @@
 import type { Session, SessionStorage } from '@remix-run/node';
 
 export const actions = {
-  setCookieHeader: (cookieValue: string) => ({
-    type: 'SET_COOKIE_HEADER' as const,
-    payload: cookieValue,
+  setHeader: (payload: { name: string; value: string }) => ({
+    type: 'SET_HEADER' as const,
+    payload,
   }),
 
-  flashSession: (payload: {
+  setCookieHeader: (payload: { value: string }) => ({
+    type: 'SET_COOKIE_HEADER' as const,
+    payload,
+  }),
+
+  setSessionData: (payload: {
     commitSession: SessionStorage['commitSession'];
     session: Session;
     name: string;
     value: any;
-  }) => ({ type: 'FLASH_SESSION' as const, payload }),
+  }) => ({ type: 'SET_SESSION_DATA' as const, payload }),
+
+  setSessionFlashData: (payload: {
+    commitSession: SessionStorage['commitSession'];
+    session: Session;
+    name: string;
+    value: any;
+  }) => ({ type: 'SET_SESSION_FLASH_DATA' as const, payload }),
 
   getSessionFlashData: (payload: {
     commitSession: SessionStorage['commitSession'];

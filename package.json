@@ -1,0 +1,24 @@
+{
+  "name": "remix-gen",
+  "packageManager": "yarn@3.2.1",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts"
+  },
+  "devDependencies": {
+    "@remix-run/node": "^1.6.7",
+    "tsup": "^6.2.1",
+    "typescript": "^4.7.4"
+  }
+}

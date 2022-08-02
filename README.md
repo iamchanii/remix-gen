@@ -1,5 +1,9 @@
 # remix-gen
 
+[![npm version](https://badge.fury.io/js/remix-gen.svg)](https://badge.fury.io/js/remix-gen)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/remix-gen)
+![GitHub](https://img.shields.io/github/license/iamchanii/remix-gen)
+
 A utility for Remix's loader/action based on async generator.
 
 ## Install

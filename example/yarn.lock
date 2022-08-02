@@ -4370,6 +4370,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"example@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "example@workspace:."
+  dependencies:
+    "@remix-run/dev": ^1.6.7
+    "@remix-run/eslint-config": ^1.6.7
+    "@remix-run/node": ^1.6.7
+    "@remix-run/react": ^1.6.7
+    "@remix-run/serve": ^1.6.7
+    "@types/react": ^17.0.47
+    "@types/react-dom": ^17.0.17
+    eslint: ^8.20.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    remix-gen: ^0.0.3
+    typescript: ^4.7.4
+  languageName: unknown
+  linkType: soft
+
 "exit-hook@npm:2.2.1":
   version: 2.2.1
   resolution: "exit-hook@npm:2.2.1"
@@ -8117,25 +8136,6 @@ __metadata:
   checksum: 339fdf866d8f4ff6e408fa274c0525412f7edb01dc46b5ccda51f575b7e0d20ad72965773376fb5db95a77a7fcfcab97bf841ec08dbadf5d6b08af02b7a2cf5e
   languageName: node
   linkType: hard
-
-"root-workspace-0b6124@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "root-workspace-0b6124@workspace:."
-  dependencies:
-    "@remix-run/dev": ^1.6.7
-    "@remix-run/eslint-config": ^1.6.7
-    "@remix-run/node": ^1.6.7
-    "@remix-run/react": ^1.6.7
-    "@remix-run/serve": ^1.6.7
-    "@types/react": ^17.0.47
-    "@types/react-dom": ^17.0.17
-    eslint: ^8.20.0
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    remix-gen: ^0.0.3
-    typescript: ^4.7.4
-  languageName: unknown
-  linkType: soft
 
 "run-async@npm:^2.4.0":
   version: 2.4.1

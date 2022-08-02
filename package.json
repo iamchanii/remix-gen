@@ -21,7 +21,8 @@
   ],
   "scripts": {
     "build": "tsup src/index.ts",
-    "prepublish": "yarn build"
+    "prepublish": "yarn build",
+    "example": "yarn workspace example run dev"
   },
   "devDependencies": {
     "@remix-run/node": "^1.6.7",
